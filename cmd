@@ -36,4 +36,5 @@ sudo systemctl stop docker
 ### Test data preparation
 
 docker exec -i -t nifi bash
+mkdir -p scd cp /opt/workspace/nifi/FakeDataset/
 /opt/workspace/nifi/FakeDataset/customer_(timestamp).csv 

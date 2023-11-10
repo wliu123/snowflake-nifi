@@ -44,3 +44,15 @@ create or replace table customer_raw (
 );
 
 create or replace stream customer_table_changes on table customer;
+
+create or replace stage scd_demo.scd2.customer_ext_stage
+    url = 'your_aws_s3_resource_url'
+    credentials = (aws_key_id='your_aws_key_id' aws_secret_key='your_aws_secret_key')
+
+create or replace file format scd_demo.scd2.CSV
+    type=csv,
+    field_delimiter=',',
+    skip_header=1;
+
+show stages;
+list @customer_ext_stage;
